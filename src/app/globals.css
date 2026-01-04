@@ -36,16 +36,26 @@ a {
   color: inherit;
   text-decoration: none;
 }
-:root {
-  --header-height: 80px; /* fallback */
+:root{
+  /* header height fallback (динамически будет перезаписываться в Header.tsx) */
+  --header-height: 80px;
+
+  /* container / spacing standardization */
+  --container-max-width: 1200px;   /* standard content width */
+  --container-max-width-2xl: 1400px; /* optional larger size for very wide screens */
+  --container-padding: 1rem;       /* horizontal padding inside container (16px) */
+  --section-pad-sm: 2.5rem;        /* small vertical padding */
+  --section-pad-md: 4rem;          /* medium vertical padding (default) */
+  --section-pad-lg: 6rem;          /* large vertical padding */
 }
 
+/* Compensate fixed header so content isn't hidden under it */
 main {
   padding-top: var(--header-height);
 }
 
+/* native anchor scrolling offset */
 html {
-  /* native anchor scrolling offset */
   scroll-padding-top: calc(var(--header-height) + 8px);
 }
 
@@ -53,28 +63,70 @@ html {
 [id] {
   scroll-margin-top: calc(var(--header-height) + 8px);
 }
+
+/* ------------------------------
+  Global container & spacing standardization
+  ------------------------------ */
+.container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  box-sizing: border-box;
+}
+
+/* Wider container on very large screens */
+@media (min-width: 1536px) {
+  .container {
+    max-width: var(--container-max-width-2xl);
+  }
+}
+
+/* If you need zero horizontal padding in large screens (header etc) */
+.container-no-pad {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Full-bleed section pattern:
+   - section uses full-width background (no container)
+   - inner content must use .container to center and limit width */
+.full-bleed {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+/* Standard section spacing helpers (use instead of many different py- classes) */
+.section-pad-sm { padding-top: var(--section-pad-sm); padding-bottom: var(--section-pad-sm); }
+.section-pad-md { padding-top: var(--section-pad-md); padding-bottom: var(--section-pad-md); }
+.section-pad-lg { padding-top: var(--section-pad-lg); padding-bottom: var(--section-pad-lg); }
+
+/* Ensure images inside container don't exceed container width */
+.container img,
+.container picture,
+.container svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Minor helper: enforce box-sizing on layout primitives */
+html, body, .container, section {
+  box-sizing: border-box;
+}
+
+/* Animations (из вашего первоначального блока) */
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.2s ease-in-out;
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 2s ease-in-out infinite;
-}
+.animate-fade-in { animation: fade-in 0.2s ease-in-out; }
+.animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
