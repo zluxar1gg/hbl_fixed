@@ -5,7 +5,7 @@ interface HeroProps {
   language: Language;
 }
 
-/* Простые inline-иконки (локальные SVG-компоненты) — чтобы не зависеть от внешних файлов */
+/* Local simple SVG icons to avoid missing imports */
 const CalendarIcon = ({ size = 24, ...props }: any) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -84,10 +84,10 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
     <section className="pt-32 pb-20 md:pb-24 lg:pb-28 bg-cream">
       <div className="container mx-auto">
         <div className="flex flex-col items-start lg:items-center text-left lg:text-center mb-12 lg:mb-20">
-            {/* Responsive H1: clamp + max-width */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-[1.1] mb-8 text-brand-dark lg:max-w-6xl tracking-tight">
-  {t.title}
-</h1>
+            {/* restored original size classes */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-[1.1] mb-8 text-brand-dark lg:max-w-6xl tracking-tight">
+                {t.title}
+            </h1>
 
             <div className="bg-brand-yellow px-6 py-3 rounded-2xl shadow-sm border border-brand-yellow/30 animate-fade-in flex items-center gap-2.5">
                 <span className="flex h-3 w-3 relative">
