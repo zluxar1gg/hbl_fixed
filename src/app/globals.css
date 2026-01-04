@@ -1,5 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f5f5f0;
+  --color-brand-blue: #2397d0;
+  --color-brand-light: #cde4f5;
+  --color-brand-yellow: #fff176;
+  --color-brand-dark: #1a1a1a;
+  
+  --font-family-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-cream);
+  color: var(--color-brand-dark);
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
 :root{
-  /* header height fallback (динамически перезаписывается Header.tsx) */
+  /* header height fallback (динамически будет перезаписываться в Header.tsx) */
   --header-height: 80px;
 
   /* container / spacing standardization */
@@ -79,7 +117,7 @@ html, body, .container, section {
   box-sizing: border-box;
 }
 
-/* Animations */
+/* Animations (из вашего первоначального блока) */
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
