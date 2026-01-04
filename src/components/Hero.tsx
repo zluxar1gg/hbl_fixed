@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Language, translations } from '../utils/translations';
 import { CalendarIcon, Warehouse, CartIcon, PackageIcon, PaymentIcon, SupportIcon, Globe, HeartIcon } from './icons';
