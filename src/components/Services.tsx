@@ -13,12 +13,12 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
 
   return (
     <section className="py-6 pb-10 bg-cream">
-      <div className="container mx-auto space-y-8">
+      <div className="container mx-auto space-y-6">
         
         {/* Services Block */}
         <div className="bg-white rounded-[30px] shadow-sm overflow-hidden transition-all duration-300">
           <button 
-            className="w-full p-10 lg:p-12 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
+            className="w-full p-8 lg:p-10 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
             onClick={() => setIsServicesOpen(!isServicesOpen)}
             aria-expanded={isServicesOpen}
           >
@@ -29,7 +29,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
           </button>
 
           <div className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${isServicesOpen ? 'max-h-[2000px]' : 'max-h-0'}`}>
-            <div className="px-10 py-12 lg:px-12 lg:py-14 pt-0 grid lg:grid-cols-2 gap-x-20 gap-y-12 border-t border-gray-100 mt-2">
+            <div className="px-8 py-10 lg:px-10 lg:py-12 pt-0 grid lg:grid-cols-2 gap-x-20 gap-y-12 border-t border-gray-100 mt-2">
               <div>
                 <ServiceItem title={t.items.reception.title} text={t.items.reception.text} />
                 <ServiceItem title={t.items.storage.title} text={t.items.storage.text} />
@@ -51,7 +51,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
         {/* Amazon Logistics Block */}
         <div className="bg-white rounded-[30px] shadow-sm overflow-hidden transition-all duration-300">
           <button 
-            className="w-full p-10 lg:p-12 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
+            className="w-full p-8 lg:p-10 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
             onClick={() => setIsAmazonOpen(!isAmazonOpen)}
             aria-expanded={isAmazonOpen}
           >
@@ -62,7 +62,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
           </button>
 
           <div className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${isAmazonOpen ? 'max-h-[2000px]' : 'max-h-0'}`}>
-            <div className="px-10 py-12 lg:px-12 lg:py-14 pt-0 grid lg:grid-cols-2 gap-x-20 gap-y-12 border-t border-gray-100 mt-2">
+            <div className="px-8 py-10 lg:px-10 lg:py-12 pt-0 grid lg:grid-cols-2 gap-x-20 gap-y-12 border-t border-gray-100 mt-2">
               <div>
                 <ServiceItem title={t.amazonItems.fba.title} text={t.amazonItems.fba.text} />
                 <ServiceItem title={t.amazonItems.direct.title} text={t.amazonItems.direct.text} />

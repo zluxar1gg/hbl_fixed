@@ -18,7 +18,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['var(--font-jakarta)', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       container: {
         center: true,
@@ -28,14 +28,18 @@ export default {
         },
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-out',
-        'bounce-slow': 'bounce 3s infinite',
+        'fade-in': 'fade-in 0.2s ease-in-out',
+        'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        'fade-in': {
+          'from': { opacity: '0' },
+          'to': { opacity: '1' },
         },
+        'bounce-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
       },
     },
   },

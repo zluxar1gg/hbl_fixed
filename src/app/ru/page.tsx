@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
@@ -15,9 +15,11 @@ import { Footer } from '@/components/Footer';
 import { SeoBlock } from '@/components/SeoBlock';
 import { Analytics } from '@/components/Analytics';
 import { FloatingContact } from '@/components/FloatingContact';
-import { Quiz } from '@/components/Quiz';
 import { Language, translations } from '@/utils/translations';
 import { Loader2, X, Hammer } from 'lucide-react';
+
+// Lazy load components
+const Quiz = React.lazy(() => import('@/components/Quiz').then(module => ({ default: module.Quiz })));
 
 export default function RuPage() {
   const [language] = useState<Language>('ru');
@@ -62,11 +64,17 @@ export default function RuPage() {
         </div>
         
         {isQuizOpen && (
-          <Quiz 
-            language={language} 
-            isOpen={isQuizOpen} 
-            onClose={() => setIsQuizOpen(false)} 
-          />
+          <Suspense fallback={
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/60 backdrop-blur-md">
+              <Loader2 className="w-12 h-12 text-white animate-spin" />
+            </div>
+          }>
+            <Quiz 
+              language={language} 
+              isOpen={isQuizOpen} 
+              onClose={() => setIsQuizOpen(false)} 
+            />
+          </Suspense>
         )}
 
         <div id="tracking" className="scroll-mt-28">
