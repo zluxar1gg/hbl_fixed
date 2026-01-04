@@ -31,6 +31,16 @@ export const Header: React.FC<HeaderProps> = ({ language, onLoginClick, isDashbo
         window.location.href = href;
         return;
     }
+    
+    // Check if we're on the correct language page
+    const currentLang = pathname.startsWith('/ru') ? 'ru' : 'en';
+    if (currentLang !== language) {
+      // Navigate to correct language page with anchor
+      const newPath = language === 'ru' ? `/ru${href}` : `/${href}`;
+      window.location.href = newPath;
+      return;
+    }
+    
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
