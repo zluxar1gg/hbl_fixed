@@ -109,7 +109,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ language }) => {
         </h2>
         
         {/* DESKTOP */}
-        <div className="hidden md:block bg-brand-light rounded-[40px] p-16 lg:p-20 xl:p-24 relative shadow-sm border border-brand-blue/5 min-h-[600px]">
+        <div className="hidden md:block bg-brand-light rounded-[40px] p-12 lg:p-16 relative shadow-sm border border-brand-blue/5 min-h-[600px]">
           <div className="grid grid-cols-3 gap-8 lg:gap-10">
             {testimonialPages[desktopPage].map((review, idx) => (
               <ReviewCard key={idx} review={review} />
