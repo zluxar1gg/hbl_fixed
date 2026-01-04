@@ -85,12 +85,9 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
       <div className="container mx-auto">
         <div className="flex flex-col items-start lg:items-center text-left lg:text-center mb-12 lg:mb-20">
             {/* Responsive H1: clamp + max-width */}
-            <h1
-              className="mx-auto w-full font-extrabold leading-tight mb-8 text-brand-dark tracking-tight lg:max-w-[1100px]"
-              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 6.5rem)', lineHeight: '1.02' }}
-            >
-                {t.title}
-            </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-[1.1] mb-8 text-brand-dark lg:max-w-6xl tracking-tight">
+  {t.title}
+</h1>
 
             <div className="bg-brand-yellow px-6 py-3 rounded-2xl shadow-sm border border-brand-yellow/30 animate-fade-in flex items-center gap-2.5">
                 <span className="flex h-3 w-3 relative">
