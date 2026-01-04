@@ -66,7 +66,6 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             ref={servicesRef}
             className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
             aria-hidden={!isServicesOpen}
-            // initial inline style ensures closed state
             style={{ maxHeight: '0px' }}
           >
             <div className="px-6 py-8 lg:px-10 lg:py-12 grid lg:grid-cols-2 gap-x-14 gap-y-10 border-t border-gray-100">
@@ -111,16 +110,31 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             style={{ maxHeight: '0px' }}
           >
             <div className="px-6 py-8 lg:px-10 lg:py-12 border-t border-gray-100">
-              <p className="text-gray-700 text-base leading-relaxed mb-6">{t.amazonText}</p>
-              {/* Put any Amazon-specific content here; using existing structure */}
+              {/* Use amazonItems from translations */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-bold mb-3">{t.amazonFeatureTitle1}</h4>
-                  <p className="text-sm text-gray-600">{t.amazonFeatureText1}</p>
+                  <h4 className="font-bold mb-3">{t.amazonItems.fba.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.fba.text}</p>
                 </div>
                 <div>
-                  <h4 className="font-bold mb-3">{t.amazonFeatureTitle2}</h4>
-                  <p className="text-sm text-gray-600">{t.amazonFeatureText2}</p>
+                  <h4 className="font-bold mb-3">{t.amazonItems.direct.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.direct.text}</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-3">{t.amazonItems.ddp.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.ddp.text}</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-3">{t.amazonItems.inspection.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.inspection.text}</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-3">{t.amazonItems.storage.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.storage.text}</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-3">{t.amazonItems.samples.title}</h4>
+                  <p className="text-sm text-gray-600 mb-4">{t.amazonItems.samples.text}</p>
                 </div>
               </div>
             </div>
