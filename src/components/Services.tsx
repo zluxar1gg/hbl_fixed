@@ -44,7 +44,8 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
 
   return (
     <section className="py-6 pb-10 bg-cream">
-      <div className="container mx-auto space-y-6">
+      {/* increased gap between blocks: space-y-8 */}
+      <div className="container mx-auto space-y-8">
 
         {/* Services Block */}
         <div className="bg-white rounded-[30px] shadow-sm overflow-hidden transition-all duration-300">
@@ -52,7 +53,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             id="services-button"
             aria-controls="services-panel"
             aria-expanded={isServicesOpen}
-            className="w-full p-6 lg:p-8 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
+            className="w-full p-8 lg:p-10 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
             onClick={toggleServices}
           >
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-dark tracking-tight">{t.title}</h3>
@@ -68,7 +69,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             aria-hidden={!isServicesOpen}
             style={{ maxHeight: '0px' }}
           >
-            <div className="px-6 py-8 lg:px-10 lg:py-12 grid lg:grid-cols-2 gap-x-14 gap-y-10 border-t border-gray-100">
+            <div className="px-8 py-10 lg:px-12 lg:py-14 grid lg:grid-cols-2 gap-x-14 gap-y-10 border-t border-gray-100">
               <div>
                 <ServiceItem title={t.items.reception.title} text={t.items.reception.text} />
                 <ServiceItem title={t.items.storage.title} text={t.items.storage.text} />
@@ -93,7 +94,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             id="amazon-button"
             aria-controls="amazon-panel"
             aria-expanded={isAmazonOpen}
-            className="w-full p-6 lg:p-8 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
+            className="w-full p-8 lg:p-10 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors select-none text-left"
             onClick={toggleAmazon}
           >
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-dark tracking-tight">{t.amazonTitle}</h3>
@@ -109,7 +110,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
             aria-hidden={!isAmazonOpen}
             style={{ maxHeight: '0px' }}
           >
-            <div className="px-6 py-8 lg:px-10 lg:py-12 border-t border-gray-100">
+            <div className="px-8 py-10 lg:px-12 lg:py-14 border-t border-gray-100">
               {/* Use amazonItems from translations */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
