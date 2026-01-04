@@ -1,47 +1,59 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
-export default {
+const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './public/**/*.html',
   ],
   theme: {
     extend: {
+      // если используешь кастомные цвета/переменные, можно добавить тут
       colors: {
-        cream: '#f5f5f0',
-        brand: {
-          blue: '#2397d0',
-          light: '#cde4f5',
-          yellow: '#fff176',
-          dark: '#1a1a1a',
-        },
+        // пример, если используются именованные цвета
+        'brand-blue': '#0b6eff',
+        // 'bg-blue-50' уже есть в Tailwind, но если кастом — добавить
       },
-      fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        lg: '0',
       },
-      container: {
-        center: true,
-        padding: '1.5rem',
-        screens: {
-          xl: '1200px',
-        },
-      },
-      animation: {
-        'fade-in': 'fade-in 0.2s ease-in-out',
-        'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
-      },
-      keyframes: {
-        'fade-in': {
-          'from': { opacity: '0' },
-          'to': { opacity: '1' },
-        },
-        'bounce-slow': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1200px',
+        '2xl': '1400px',
       },
     },
   },
+  safelist: [
+    // классы, которые нужно явно включить (чтобы purge не вырезал)
+    'space-y-8',
+    'space-y-10',
+    'p-8',
+    'p-10',
+    'lg:p-10',
+    'lg:p-12',
+    'px-8',
+    'py-10',
+    'lg:py-14',
+    'rounded-[28px]',
+    'rounded-[30px]',
+    'bg-blue-50',
+    'text-brand-blue',
+    'text-brand-dark',
+    'shadow-sm',
+    'shadow-xl',
+    'max-w-[1100px]',
+    'max-w-6xl',
+    'w-full',
+    'container',
+  ],
   plugins: [],
-} satisfies Config;
+};
+
+export default config;
