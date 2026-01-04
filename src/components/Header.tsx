@@ -1,3 +1,4 @@
+// path: src/components/Header.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -47,6 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ language, onLoginClick, isDashbo
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
+      // Use native smooth scroll and rely on CSS scroll-margin/scroll-padding to offset the fixed header
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setIsMenuOpen(false);
     }
